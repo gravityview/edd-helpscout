@@ -6,12 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'EDD\\HelpScout\\Endpoint' => $baseDir . '/includes/class-endpoint.php',
-    'EDD\\HelpScout\\Listener' => $baseDir . '/includes/class-listener.php',
-    'EDD\\HelpScout\\Request' => $baseDir . '/includes/class-request.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
+    'GitHub\\HelpScout\\Endpoint' => $baseDir . '/includes/class-endpoint.php',
+    'GitHub\\HelpScout\\Listener' => $baseDir . '/includes/class-listener.php',
+    'GitHub\\HelpScout\\Request' => $baseDir . '/includes/class-request.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
     'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
     'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
