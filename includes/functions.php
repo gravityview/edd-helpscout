@@ -1,6 +1,6 @@
 <?php
 
-namespace EDD\HelpScout;
+namespace GitHub\HelpScout;
 
 /**
  * This will kill the request if the current request doesn't pass authorization checks.
@@ -48,7 +48,7 @@ function verify_request_signature() {
  * Listen for API actions
  */
 function listen_for_actions() {
-	$listener = new Listener( EDD_HELPSCOUT_API_PATH );
+	$listener = new Listener( GITHUB_HELPSCOUT_API_PATH );
 	$action = $listener->listen( $_SERVER['REQUEST_URI'] );
 
 	if( ! empty( $action ) ) {
@@ -61,6 +61,6 @@ function listen_for_actions() {
 		 * @see authorize_request
 		 * @see verify_request_signature
 		 */
-		do_action( 'edd_helpscout_' . $action );
+		do_action( 'github_helpscout_' . $action );
 	}
 }

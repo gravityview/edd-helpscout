@@ -1,7 +1,7 @@
 <?php defined( 'ABSPATH' ) or exit; ?>
 <div class="toggleGroup <?php if( $order['is_completed'] ) echo 'open'; ?>">
 
-	<?php do_action( 'edd_helpscout_before_order', $order ); ?>
+	<?php do_action( 'github_helpscout_before_order', $order ); ?>
 
 	<strong>
 		<i class="icon-cart"></i>
@@ -9,7 +9,7 @@
 	</strong>
 	<a class="toggleBtn"><i class="icon-arrow"></i></a>
 
-	<?php do_action( 'edd_helpscout_before_order_status', $order ); ?>
+	<?php do_action( 'github_helpscout_before_order_status', $order ); ?>
 
 	<?php if( $order['is_completed'] ) { ?>
 		<a style="float:right" href="<?php echo  esc_url( $order['resend_receipt_link'] ); ?>" target="_blank">
@@ -23,11 +23,11 @@
 		<span style="color:#008000;font-weight:bold;"> (renewal)</span>
 	<?php endif; ?>
 
-	<?php do_action( 'edd_helpscout_after_order_status', $order ); ?>
+	<?php do_action( 'github_helpscout_after_order_status', $order ); ?>
 
 	<div class="toggle indent">
 
-		<?php do_action( 'edd_helpscout_before_order_details', $order ); ?>
+		<?php do_action( 'github_helpscout_before_order_details', $order ); ?>
 
 		<p>
 			<span class="muted"><?php echo $order['date']; ?></span><br/>
@@ -35,7 +35,7 @@
 		</p>
 
 		<?php if ( ! empty( $order['downloads'] ) ) : ?>
-			<?php do_action( 'edd_helpscout_before_order_downloads', $order, $order['downloads'] ); ?>
+			<?php do_action( 'github_helpscout_before_order_downloads', $order, $order['downloads'] ); ?>
 
 			<ul class="unstyled">
 				<?php foreach( $order['downloads'] as $download ) : ?>
@@ -45,11 +45,11 @@
 							<?php echo edd_get_price_option_name( $download['id'], $download['options']['price_id'] ); ?>
 						<?php endif ?>
 
-						<?php do_action( 'edd_helpscout_before_order_download_details', $order, $download ); ?>
+						<?php do_action( 'github_helpscout_before_order_download_details', $order, $download ); ?>
 
 						<?php if( ! empty( $download['license'] ) ) : $license = $download['license']; ?>
 
-							<?php do_action( 'edd_helpscout_before_order_download_license', $order, $download, $license ); ?>
+							<?php do_action( 'github_helpscout_before_order_download_license', $order, $download, $license ); ?>
 
 							<a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-licenses&s=' . $license['key'] ); ?>" style="display: block;">
 								<?php echo $license['key']; ?>
@@ -83,24 +83,24 @@
 							<?php
 							} // end if sites not empty ?>
 
-							<?php do_action( 'edd_helpscout_after_order_download_license', $order, $download, $license ); ?>
+							<?php do_action( 'github_helpscout_after_order_download_license', $order, $download, $license ); ?>
 
 						<?php endif; //end if has license ?>
 
-						<?php do_action( 'edd_helpscout_after_order_download_details', $order, $download ); ?>
+						<?php do_action( 'github_helpscout_after_order_download_details', $order, $download ); ?>
 					</li>
 				<?php endforeach; ?>
 			</ul>
 
-			<?php do_action( 'edd_helpscout_after_order_downloads', $order, $order['downloads'] ); ?>
+			<?php do_action( 'github_helpscout_after_order_downloads', $order, $order['downloads'] ); ?>
 
 		<?php endif; // endif downloads ?>
 
-		<?php do_action( 'edd_helpscout_after_order_details', $order ); ?>
+		<?php do_action( 'github_helpscout_after_order_details', $order ); ?>
 
 	</div>
 
-	<?php do_action( 'edd_helpscout_after_order', $order ); ?>
+	<?php do_action( 'github_helpscout_after_order', $order ); ?>
 
 </div>
 

@@ -1,8 +1,6 @@
 <?php
 
-namespace EDD\HelpScout;
-
-use EDD_Software_Licensing;
+namespace GitHub\HelpScout;
 
 /**
  * This class takes care of requests coming from HelpScout App Integrations
@@ -39,10 +37,10 @@ class Endpoint {
 		}
 
 		// get customer email(s)
-		$this->customer_emails = $this->get_customer_emails();
+		$this->customer_emails = $this->get_github_issues();
 
 		// get customer payment(s)
-		$this->customer_payments = $this->query_customer_payments();
+		$this->github_issues = $this->query_github_issues();
 
 		// build the final response HTML for HelpScout
 		$html = $this->build_response_html();
@@ -95,9 +93,6 @@ class Endpoint {
 	 */
 	private function get_customer_emails_by_license_key() {
 
-		if ( ! class_exists( 'EDD_Software_Licensing' ) ) {
-			return array();
-		}
 
 		$subject_line = $this->data['ticket']['subject'];
 		$last_word    = substr( $subject_line, strrpos( $subject_line, ' ' ) + 1 );
@@ -124,7 +119,7 @@ class Endpoint {
 	 *
 	 * @return array
 	 */
-	private function get_customer_emails() {
+	private function get_github_issues() {
 
 		$customer_data = $this->data['customer'];
 		$emails        = array();
@@ -141,7 +136,7 @@ class Endpoint {
 		 * Filter email address of the customer
 		 * @since 1.1
 		 */
-		$emails = apply_filters( 'edd_helpscout_customer_emails', $emails, $this->data );
+		$emails = apply_filters( 'github_helpscout_customer_emails', $emails, $this->data );
 
 		if ( count( $emails ) === 0 ) {
 			$this->respond( 'No customer email given.' );
@@ -155,7 +150,7 @@ class Endpoint {
 	 *
 	 * @return array
 	 */
-	private function query_customer_payments() {
+	private function query_github_issues() {
 
 		$payments = array();
 
@@ -164,7 +159,7 @@ class Endpoint {
 		 *
 		 * @since 1.1
 		 */
-		$payments = apply_filters( 'edd_helpscout_customer_payments', $payments, $this->customer_emails, $this->data );
+		$payments = apply_filters( 'github_helpscout_customer_payments', $payments, $this->customer_emails, $this->data );
 
 		if ( ! empty( $payments ) ) {
 			return $payments;
@@ -333,7 +328,7 @@ class Endpoint {
 	 */
 	public function order_row( array $order ) {
 		ob_start();
-		include dirname( EDD_HELPSCOUT_FILE ) . '/views/order-row.php';
+		include dirname( GITHUB_HELPSCOUT_FILE ) . '/views/order-row.php';
 		$html = ob_get_clean();
 
 		return $html;

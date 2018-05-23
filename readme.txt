@@ -28,13 +28,13 @@ If using the Software Licensing add-on, the following information is shown as we
 
 **How to install and configure**
 
-Have a look at the [installation instructions](https://wordpress.org/plugins/edd-helpscout/installation/).
+Have a look at the [installation instructions](https://wordpress.org/plugins/github-helpscout/installation/).
 
 > Please note that this plugin requires PHP 5.3 or higher.
 
 **More information**
 
-- Developers; follow or contribute to the [plugin on GitHub](https://github.com/dannyvankooten/edd-helpscout)
+- Developers; follow or contribute to the [plugin on GitHub](https://github.com/dannyvankooten/github-helpscout)
 - Other [WordPress plugins](https://dannyvankooten.com/wordpress-plugins/#utm_source=wp-plugin-repo&utm_medium=link&utm_campaign=more-info-link) by [Danny van Kooten](https://dannyvankooten.com#utm_source=wp-plugin-repo&utm_medium=link&utm_campaign=more-info-link)
 - [@DannyvanKooten](https://twitter.com/dannyvankooten) on Twitter
 
@@ -44,14 +44,14 @@ To get this up an running, you'll need to configure a few things in WordPress an
 
 = WordPress =
 
-1. Upload the contents of **edd-helpscout.zip** to your plugins directory, which usually is `/wp-content/plugins/`.
+1. Upload the contents of **github-helpscout.zip** to your plugins directory, which usually is `/wp-content/plugins/`.
 1. Activate the **HelpScout integration for Easy Digital Downloads** plugin
-1. Set the **HELPSCOUT_SECRET_KEY** constant in your `/wp-config.php` file. This should be a random string of 40 characters.
+1. Set the **GITHUB_HELPSCOUT_SECRET_KEY** constant in your `/wp-config.php` file. This should be a random string of 40 characters.
 
 
 _Example_
 `
-define( 'HELPSCOUT_SECRET_KEY', 'your-random-string' );
+define( 'GITHUB_HELPSCOUT_SECRET_KEY', 'your-random-string' );
 `
 
 = HelpScout =
@@ -61,14 +61,14 @@ define( 'HELPSCOUT_SECRET_KEY', 'your-random-string' );
 
 **App Name:** Easy Digital Downloads<br />
 **Content Type:** Dynamic Content<br />
-**Callback URL:** https://your-site.com/edd-helpscout/api _(I recommend using HTTPS)_ <br />
-**Secret Key:** The value of your **HELPSCOUT_SECRET_KEY** constant.
+**Callback URL:** https://your-site.com/github-helpscout/api _(I recommend using HTTPS)_ <br />
+**Secret Key:** The value of your **GITHUB_HELPSCOUT_SECRET_KEY** constant.
 
 == Frequently Asked Questions ==
 
 = HelpScout just shows "Invalid Signature" =
 
-Make sure the "Secret Key" setting for your HelpScout application matches the value of your `HELPSCOUT_SECRET_KEY` constant. This key is used to authorize requests coming from HelpScout.
+Make sure the "Secret Key" setting for your HelpScout application matches the value of your `GITHUB_HELPSCOUT_SECRET_KEY` constant. This key is used to authorize requests coming from HelpScout.
 
 == Screenshots ==
 

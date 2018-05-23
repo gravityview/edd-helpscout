@@ -1,6 +1,6 @@
 <?php
 
-namespace EDD\HelpScout;
+namespace GitHub\HelpScout;
 
 /**
  *
@@ -20,7 +20,7 @@ class Request {
 	/**
 	 * @var string
 	 */
-	private static $secret_key = HELPSCOUT_SECRET_KEY;
+	private static $secret_key = GITHUB_HELPSCOUT_SECRET_KEY;
 
 	/**
 	 * @param array $data
@@ -65,7 +65,7 @@ class Request {
 		// add signature to url args
 		$args['s'] = $this->signature;
 
-		return add_query_arg( urlencode_deep( $args ), home_url( rtrim( EDD_HELPSCOUT_API_PATH, '/' ) . '/' . $action ) );
+		return add_query_arg( urlencode_deep( $args ), home_url( rtrim( GITHUB_HELPSCOUT_API_PATH, '/' ) . '/' . $action ) );
 	}
 
 

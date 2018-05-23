@@ -1,6 +1,6 @@
 <?php
 
-namespace EDD\HelpScout;
+namespace GitHub\HelpScout;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -50,7 +50,7 @@ function get_customer_info() {
 }
 
 
-add_action( 'edd_helpscout_resend_purchase_receipt', 'EDD\\HelpScout\\resend_purchase_receipt' );
-add_action( 'edd_helpscout_deactivate_site_license', 'EDD\\HelpScout\\deactivate_site_license' );
-add_action( 'edd_helpscout_customer_info', 'EDD\\HelpScout\\get_customer_info' );
+add_action( 'github_helpscout_resend_purchase_receipt', 'EDD\\HelpScout\\resend_purchase_receipt' );
+add_action( 'github_helpscout_deactivate_site_license', 'EDD\\HelpScout\\deactivate_site_license' );
+add_action( 'github_helpscout_customer_info', 'EDD\\HelpScout\\get_customer_info' );
 

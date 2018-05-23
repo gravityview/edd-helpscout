@@ -1,6 +1,6 @@
 <?php
 
-namespace EDD\HelpScout;
+namespace GitHub\HelpScout;
 
 use PHPUnit_Framework_TestCase;
 
@@ -27,14 +27,14 @@ class RequestTest extends PHPUnit_Framework_TestCase {
 		$data = [ 'key' => 'value' ];
 		$request = new Request( $data );
 
-		$signature = base64_encode( hash_hmac( 'sha1', json_encode( $data ), HELPSCOUT_SECRET_KEY, true ) );
+		$signature = base64_encode( hash_hmac( 'sha1', json_encode( $data ), GITHUB_HELPSCOUT_SECRET_KEY, true ) );
 		self::assertTrue( $request->signature_equals( $signature ) );
 		self::assertFalse( $request->signature_equals( '' ) );
 
 		$signature = base64_encode( hash_hmac( 'sha1', json_encode( $data ), 'SomeIncorrectKey', true ) );
 		self::assertFalse( $request->signature_equals( $signature ) );
 
-		$signature = base64_encode( hash_hmac( 'sha1', json_encode( [ 'other-key' => 'value' ] ), HELPSCOUT_SECRET_KEY, true ) );
+		$signature = base64_encode( hash_hmac( 'sha1', json_encode( [ 'other-key' => 'value' ] ), GITHUB_HELPSCOUT_SECRET_KEY, true ) );
 		self::assertFalse( $request->signature_equals( $signature ) );
 	}
 }

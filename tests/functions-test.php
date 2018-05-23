@@ -1,6 +1,6 @@
 <?php
 
-namespace EDD\HelpScout;
+namespace GitHub\HelpScout;
 
 use PHPUnit_Framework_TestCase;
 
