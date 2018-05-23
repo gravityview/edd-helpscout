@@ -23,7 +23,6 @@ class Listener {
 	 * @return boolean
 	 */
 	public function listen( $url ) {
-
 		// Make sure url starts with expected url
 		if( strpos( $url, $this->base_url ) !== 0 ) {
 			return '';

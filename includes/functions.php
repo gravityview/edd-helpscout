@@ -52,7 +52,7 @@ function listen_for_actions() {
 	$action = $listener->listen( $_SERVER['REQUEST_URI'] );
 
 	if( ! empty( $action ) ) {
-
+		
 		/**
 		 * Perform an API action. Request is unauthorized at this point, so make sure to perform auth checks in your action callback.
 		 *
